@@ -2455,7 +2455,7 @@ class Repository(_Repository):
 
     def _update_attributes(self, repo):
         super(Repository, self)._update_attributes(repo)
-        self.archived = repo['archived']
+        self.archived = repo.get('archived')
         self.clone_url = repo['clone_url']
         self.created_at = self._strptime(repo['created_at'])
         self.default_branch = repo['default_branch']
@@ -2465,7 +2465,7 @@ class Repository(_Repository):
         self.has_downloads = repo['has_downloads']
         self.has_issues = repo['has_issues']
         self.has_pages = repo['has_pages']
-        self.has_projects = repo['has_projects']
+        self.has_projects = repo.get('has_projects')
         self.has_wiki = repo['has_wiki']
         self.homepage = repo['homepage']
         self.language = repo['language']
